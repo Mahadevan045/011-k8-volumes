@@ -10,7 +10,7 @@ spec:
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-0c05d9cf88563d63d
+    volumeHandle: vol-0ec7fece90ac3b22a
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -29,9 +29,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: ebs-static
-spec:
-  nodeSelector:
-    topology.kubernetes.io/zone: us-east-1f
+  # spec:
+  #   nodeSelector:
+  #     topology.kubernetes.io/zone: us-east-1f
   containers:
     - name: nginx
       image: nginx
