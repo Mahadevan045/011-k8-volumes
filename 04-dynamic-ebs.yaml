@@ -18,8 +18,8 @@ metadata:
   labels:
     purpose: dynamic-ebs
 spec:
-  # nodeSelector:
-  #     topology.kubernetes.io/zone: us-east-1f
+  nodeSelector:
+      topology.kubernetes.io/zone: us-east-1f
   containers:
     - name: nginx
       image: nginx
