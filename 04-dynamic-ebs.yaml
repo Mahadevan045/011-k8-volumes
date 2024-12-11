@@ -27,9 +27,9 @@ spec:
         - name: dynamic-ebs
           mountPath: /usr/share/nginx/html
   volumes:
-    - name: static-ebs
+    - name: dynamic-ebs
       persistentVolumeClaim:
-        claimName: static-ebs
+        claimName: dynamic-ebs
 ---
 apiVersion: v1
 kind: Service 
