@@ -4,7 +4,6 @@ metadata:
   name: dynamic-ebs
 spec:
   storageClassName: "expense-ebs" 
-  volumeName: dynamic-ebs
   accessModes:
     - ReadWriteOnce
   resources:
