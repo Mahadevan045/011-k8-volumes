@@ -54,7 +54,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    purpose: static-efs
+    purpose: efs-static
   ports:
   - name: nginx-svc-port
     protocol: TCP
