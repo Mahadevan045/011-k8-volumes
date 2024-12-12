@@ -35,7 +35,7 @@ metadata:
     purpose: sc-efs
 spec:
   nodeSelector:
-      topology.kubernetes.io/zone: us-east-1f
+      topology.kubernetes.io/zone: us-east-1c
   containers:
     - name: nginx
       image: nginx
