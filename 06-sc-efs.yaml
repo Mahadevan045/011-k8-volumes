@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: sc-efs-expense
+  name: expense-efs
 spec:
   capacity:
     storage: 5Gi
@@ -12,52 +12,52 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: fs-07df924d8f8f71ef1
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: sc-efs-expense
-spec:
-  volumeName: sc-efs-expense
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: ""
-  resources:
-    requests:
-      storage: 5Gi
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: sc-efs
-  labels:
-    purpose: sc-efs
-spec:
-  nodeSelector:
-      topology.kubernetes.io/zone: us-east-1c
-  containers:
-    - name: nginx
-      image: nginx
-      volumeMounts: #docker run -v hostport:container port
-        - name: sc-efs-expense
-          mountPath: /usr/share/nginx/html
-  volumes:
-    - name: sc-efs-expense
-      persistentVolumeClaim:
-        claimName: sc-efs-expense
----
-apiVersion: v1
-kind: Service 
-metadata:
-  name: nginx
-spec:
-  type: LoadBalancer
-  selector:
-    purpose: sc-efs
-  ports:
-  - name: sc-efs-expense-port
-    protocol: TCP
-    port: 80 #service port 
-    targetPort: 80 # container port
-    nodePort: 30007
+    volumeHandle: fs-074098dddaefc73f9
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: sc-efs-expense
+# spec:
+#   volumeName: sc-efs-expense
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: ""
+#   resources:
+#     requests:
+#       storage: 5Gi
+# ---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: sc-efs
+#   labels:
+#     purpose: sc-efs
+# spec:
+#   nodeSelector:
+#       topology.kubernetes.io/zone: us-east-1c
+#   containers:
+#     - name: nginx
+#       image: nginx
+#       volumeMounts: #docker run -v hostport:container port
+#         - name: sc-efs-expense
+#           mountPath: /usr/share/nginx/html
+#   volumes:
+#     - name: sc-efs-expense
+#       persistentVolumeClaim:
+#         claimName: sc-efs-expense
+# ---
+# apiVersion: v1
+# kind: Service 
+# metadata:
+#   name: nginx
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     purpose: sc-efs
+#   ports:
+#   - name: sc-efs-expense-port
+#     protocol: TCP
+#     port: 80 #service port 
+#     targetPort: 80 # container port
+#     nodePort: 30007
