@@ -56,7 +56,7 @@ spec:
   selector:
     purpose: sc-efs
   ports:
-  - name: nginx-svc-port
+  - name: sc-efs-expense-port
     protocol: TCP
     port: 80 #service port 
     targetPort: 80 # container port
