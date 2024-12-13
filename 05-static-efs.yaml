@@ -1,18 +1,18 @@
-# apiVersion: v1
-# kind: PersistentVolume
-# metadata:
-#   name: efs-expense
-# spec:
-#   capacity:
-#     storage: 5Gi
-#   volumeMode: Filesystem
-#   accessModes:
-#     - ReadWriteOnce
-#   storageClassName: ""
-#   persistentVolumeReclaimPolicy: Retain
-#   csi:
-#     driver: efs.csi.aws.com
-#     volumeHandle: fs-06e9baabbb6670bb6
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: expense-efs-045
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-01c3bf715b12a40e3
 # ---
 # apiVersion: v1
 # kind: PersistentVolumeClaim
