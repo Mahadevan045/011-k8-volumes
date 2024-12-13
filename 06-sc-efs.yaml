@@ -5,7 +5,7 @@ metadata:
 provisioner: efs.csi.aws.com
 parameters:
   provisioningMode: efs-ap
-  fileSyste directoryPerms: "700" # mount points creation purpose we have to use 700
-  mId: fs-01c3bf715b12a40e3
+  fileSystemId: fs-01c3bf715b12a40e3
+  directoryPerms: "700"
   basePath: "/expense" # optional
   
