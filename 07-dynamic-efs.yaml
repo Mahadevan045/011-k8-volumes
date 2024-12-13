@@ -23,12 +23,12 @@ spec:
     - name: nginx
       image: nginx
       volumeMounts: #docker run -v hostport:container port
-        - name: efs-dynamic
+        - name: dynamic-efs
           mountPath: /usr/share/nginx/html
   volumes:
-    - name: efs-dynamic
+    - name: dynamic-efs
       persistentVolumeClaim:
-        claimName: efs-dynamic
+        claimName: dynamic-efs
 ---
 apiVersion: v1
 kind: Service 
